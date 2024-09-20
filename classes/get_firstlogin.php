@@ -21,7 +21,7 @@ final class local_firstlogin_get_firstlogin
 
         $plugin_config = get_config('local_firstlogin');
         // check plugin status
-        if ($plugin_config->enable_plugin && date('Y-m-d H:i', $USER->firstaccess) == date('Y-m-d H:i', time())) {
+        if ($plugin_config->enable_plugin && !(bool)$USER->core_welcome_message) {
             // redirect user
             $url = new moodle_url("/$plugin_config->redirect_url");
             header("location: $url");
