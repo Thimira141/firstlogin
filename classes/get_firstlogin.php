@@ -21,11 +21,23 @@ final class local_firstlogin_get_firstlogin
 
         $plugin_config = get_config('local_firstlogin');
         // check plugin status
-        if ($plugin_config->enable_plugin && !(bool)$USER->core_welcome_message) {
+        if ($plugin_config->enable_plugin && !$this->cookie_stat()) {
             // redirect user
             $url = new moodle_url("/$plugin_config->redirect_url");
             header("location: $url");
         }
 
+    }
+
+    // check the cookie is exists
+    protected function cookie_stat()
+    {
+        if (!isset($_COOKIE['local_first_time_login'])) {
+            // no cookie -> set cookie in web browser
+            setcookie('local_first_time_login', 'true');
+            return false;
+        } else {
+            return true;
+        }
     }
 }
