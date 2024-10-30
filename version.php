@@ -14,6 +14,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_firstlogin';
-$plugin->version = 2024020400;
+$plugin->version = 2024103000;
 $plugin->requires = 2014051200;
 

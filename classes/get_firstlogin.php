@@ -13,15 +13,18 @@
 
 require_once __DIR__.'/../../../config.php';
 
+use core\exception\moodle_exception;
+
 final class local_firstlogin_get_firstlogin
 {
+    protected string $cookieName = "MOODLE_LOCAL_FIRSTTIMELOGIN";
     function __construct()
     {
         global $USER;
 
         $plugin_config = get_config('local_firstlogin');
         // check plugin status
-        if ($plugin_config->enable_plugin && !$this->cookie_stat()) {
+        if ($plugin_config->enable_plugin && $this->is_first_login($USER->id)) {
             // redirect user
             $url = new moodle_url("/$plugin_config->redirect_url");
             header("location: $url");
@@ -29,15 +32,15 @@ final class local_firstlogin_get_firstlogin
 
     }
 
-    // check the cookie is exists
-    protected function cookie_stat()
+    /**
+     * Summary of is_first_login
+     * @param mixed $userID
+     * @return bool
+     * @author Thimira Dilshan <thimirad865@gmail.com>
+     */
+    public function is_first_login($userID)
     {
-        if (!isset($_COOKIE['local_first_time_login'])) {
-            // no cookie -> set cookie in web browser
-            setcookie('local_first_time_login', 'true');
-            return false;
-        } else {
-            return true;
-        }
+        // if course enroll == 0 then new user
+        return !count(enrol_get_users_courses($userID, false, 'id')) > 0;
     }
 }

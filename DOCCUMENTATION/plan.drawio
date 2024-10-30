@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="qehY-76MtjJZgZc59gUY" name="plugin-workflow">
-        <mxGraphModel dx="1022" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="808" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -22,21 +22,21 @@
                 <mxCell id="16" value="" style="edgeStyle=none;html=1;fontSize=12;" parent="1" source="11" target="15" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="get user &lt;b&gt;firstlogin&lt;/b&gt; info from #__users" style="whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+                <mxCell id="11" value="$cc = get user enrolled course count" style="whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="360" y="390" width="160" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="yes" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="15" target="24" edge="1">
+                <mxCell id="25" value="no" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="15" target="24" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="15" target="26" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="no" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="27" vertex="1" connectable="0">
+                <mxCell id="28" value="yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="27" vertex="1" connectable="0">
                     <mxGeometry x="-0.493" y="3" relative="1" as="geometry">
                         <mxPoint x="-4" y="6" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="firstlogin&lt;br&gt;==&lt;br&gt;current_time" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="15" value="&lt;div style=&quot;text-align: start;&quot;&gt;$cc &amp;gt; 0&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="385.5" y="490" width="109" height="109" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="yes" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="17" target="8" edge="1">
@@ -82,12 +82,6 @@
                 </mxCell>
                 <mxCell id="38" value="&lt;h1&gt;firstlogin&lt;/h1&gt;&lt;p&gt;in the database moodle save users login time informations in this table &lt;b&gt;firstlogin&lt;/b&gt; coloumn save user's first login time if this value is equal to&amp;nbsp;&lt;b&gt;0&lt;/b&gt;&amp;nbsp;which mean user is never logged into system.&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=10;spacingTop=-19;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;perimeterSpacing=0;labelBorderColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
                     <mxGeometry x="20" y="130" width="220" height="150" as="geometry"/>
-                </mxCell>
-                <mxCell id="43" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;fontFamily=Helvetica;fontSize=12;fontColor=#F0F0F0;" edge="1" parent="1" source="40" target="15">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="40" value="&lt;h1&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;firstlogin==current_time&lt;/font&gt;&lt;/h1&gt;&lt;p style=&quot;&quot;&gt;we decode firstlogin and current time strings to &lt;span style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; background-color: rgb(0, 51, 0);&quot;&gt;Y-m-d H:i&lt;/span&gt;&lt;span style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp;format so any new users will affect to the this code with in first minute after their login..&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=10;spacingTop=-19;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;perimeterSpacing=0;labelBorderColor=none;labelBackgroundColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="20" y="469.5" width="220" height="150" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
